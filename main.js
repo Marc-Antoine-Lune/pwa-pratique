@@ -1,4 +1,7 @@
+console.log('hello depuis main');
+
 const technosDiv = document.querySelector('#technos');
+
 
 function loadTechnologies(technos) {
     fetch('http://localhost:3001/technos')
@@ -21,4 +24,13 @@ function loadTechnologies(technos) {
         .catch(console.error);
 }
 
+
+
+
 loadTechnologies(technos);
+
+if (navigator.serviceWorker) {
+    navigator.serviceWorker
+        .register('sw.js')
+        .catch(err => console.error('service worker NON enregistré', err));
+}
